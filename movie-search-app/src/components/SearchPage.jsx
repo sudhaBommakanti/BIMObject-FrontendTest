@@ -1,38 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
-//import CountryList from './CountryList';
+import MovieList from './MovieList';
 
 const SearchPage = (props) => {
   const [input, setInput] = useState('');
-  const [countryListDefault, setCountryListDefault] = useState();
-  const [countryList, setCountryList] = useState();
+  const [movieListDefault, setMovieListDefault] = useState();
+  const [movieList, setMovieList] = useState();
+  const URL = 'http://www.omdbapi.com/';
+  const API_KEY = '&apikey=749bb216';
+  const RESP = '&r=json'
+
+  const { search } = window.location;
+  console.log("search value:", search);
+  const query = new URLSearchParams(search).get('s');
+  console.log("query:",query);
 
   const fetchData = async () => {
-    return await fetch('https://restcountries.eu/rest/v2/all')
+    return await fetch(URL + search + API_KEY + RESP)
       .then(response => response.json())
       .then(data => {
-         setCountryList(data) 
-         setCountryListDefault(data)
-       });}
+          console.log("result: ",data);
+         setMovieList(data.Search) 
+         setMovieListDefault(data)
+       });
+    }
 
   const updateInput = async (input) => {
-     const filtered = countryListDefault.filter(country => {
-      return country.name.toLowerCase().includes(input.toLowerCase())
+     console.log("input data:",input);
+     const filtered = movieListDefault.filter(movie => {
+      return movie.title.toLowerCase().includes(input.toLowerCase())
      })
      setInput(input);
-     setCountryList(filtered);
+     setMovieList(filtered);
   }
 
+  
   useEffect( () => {fetchData()},[]);
 	
   return (
     <>
       <h1>Movie Info</h1>
       <SearchBar 
-       input={input} 
-       onChange={updateInput}
+       input={input}
+      // onChange={this.handleChange}
+       
+    onChange={updateInput}
       />
-      {/* <CountryList countryList={countryList}/> */}
+    <MovieList movieList={movieList}/>
     </>
    );
 }
