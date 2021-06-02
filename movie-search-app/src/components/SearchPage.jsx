@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import '../css/movie-list.css'
 
 const SearchPage = (props) => {
   const [input, setInput] = useState('');
@@ -8,7 +9,7 @@ const SearchPage = (props) => {
   const [movieList, setMovieList] = useState();
   const URL = 'http://www.omdbapi.com/';
   const API_KEY = '&apikey=749bb216';
-  const RESP = '&r=json'
+  //const RESP = '&r=json'
 
   const { search } = window.location;
   console.log("search value:", search);
@@ -16,7 +17,7 @@ const SearchPage = (props) => {
   console.log("query:",query);
 
   const fetchData = async () => {
-    return await fetch(URL + search + API_KEY + RESP)
+    return await fetch(URL + search + API_KEY)
       .then(response => response.json())
       .then(data => {
           console.log("result: ",data);
@@ -34,19 +35,22 @@ const SearchPage = (props) => {
      setMovieList(filtered);
   }
 
-  
+  // eslint-disable-next-line
   useEffect( () => {fetchData()},[]);
 	
   return (
     <>
-      <h1>Movie Info</h1>
-      <SearchBar 
-       input={input}
-      // onChange={this.handleChange}
-       
-    onChange={updateInput}
-      />
-    <MovieList movieList={movieList}/>
+      <div className="search-div">
+          <SearchBar 
+            input={input}
+            onChange={updateInput}
+        />
+      </div>
+      
+      <div className="centered" style={{width: '60%', Margin: '0px auto', textAlign:'center'}}>
+      <MovieList movieList={movieList}/>
+        </div>
+    
     </>
    );
 }

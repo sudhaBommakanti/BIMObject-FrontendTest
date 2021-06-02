@@ -1,22 +1,12 @@
 const SearchBar = () => (
     <form action="/" method="get">
-        <label htmlFor="header-search">
-            {/* <span className="visually-hidden">Search blog posts</span> */}
-        </label>
-        <input
+        <input style={{ borderRadius: '12px' }}
             type="text"
             id="header-search"
-            placeholder="By Title"
-            name="s" 
-            
+            placeholder="Search Movie By Title"
+            name="s"
         />
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Year"
-            name="y" 
-        />
-        <button type="submit">Search</button>
+        <button style={{ marginLeft: '0.5rem', borderRadius: '12px' }} type="submit">Search</button>
     </form>
 );
 

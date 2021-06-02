@@ -1,0 +1,43 @@
+
+.search-div {
+    margin-bottom:10px;
+}
+
+.content-section .content-data{
+    text-align: left;
+}
+
+.content-image {
+    max-width:300px;
+}
+
+.content-section img {
+    max-width: 140px;
+    height: auto;
+    text-align: center;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.centered {
+    margin: auto;
+    width: 40%;
+    border: 0.8px black;
+    border-style: outset;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-top:1rem;
+    box-shadow: 5px 10px #888888;
+}
+
+.content-section {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+hr.star-primary {
+    background: transparent;
+    color: transparent white;
+    margin: 0;
+    height: 1rem;
+}
