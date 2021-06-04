@@ -25,14 +25,14 @@ const SearchPageDetails = (props) => {
         <>
             <div className="search-details-div">
                 <div className="search-details-heading">
-                <h1>{movieDetails.Title}</h1>
+                    <h1 className="movie-details-heading">{movieDetails.Title}</h1>
                 </div>
                <div className="search-details-data">
                     <div className="movie-image-div">
                         <img className="movie-image" src={movieDetails.Poster} alt="logo"></img>
                     </div>
                     <div className="movie-data-div">
-                        <p><b>Plot - </b>{movieDetails.Plot}</p>
+                        <p className="movie-data-plot"><b>Plot - </b>{movieDetails.Plot}</p>
                         <p><b>Date Released - </b>{movieDetails.Released}</p>
                         <p><b>Movie Runtime - </b>{movieDetails.Runtime}</p>
                         <p><b>Actors - </b>{movieDetails.Actors}</p>

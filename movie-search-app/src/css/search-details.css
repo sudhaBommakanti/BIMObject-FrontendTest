@@ -32,3 +32,21 @@
 .search-details-plot {
     padding:2rem;
 }
+
+/* media query to add a breakpoint at 1100px: */
+@media screen and (max-width: 1100px) {
+    .movie-image-div {
+        text-align: left;
+    }
+
+    .movie-details-heading {
+        font-size:16px;
+        text-align: left;
+        margin-left:6rem;
+    }
+
+    .search-details-data {
+        width:400px !important;
+    }
+
+}
