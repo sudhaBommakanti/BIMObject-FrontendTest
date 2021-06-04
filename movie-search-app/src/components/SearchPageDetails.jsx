@@ -41,10 +41,13 @@ const SearchPageDetails = (props) => {
                         <p><b>Writer - </b>{movieDetails.Writer}</p>
                         <p><b>Director - </b>{movieDetails.Director}</p>
                         <p><b>IMDB-Rating - </b>{movieDetails.imdbRating}</p>
-                        {console.log("length:",movieDetails.Ratings.lrngth)}
-                        {movieDetails.Ratings > 0 ? movieDetails.Ratings.map((rating,index) => (
-                            <p key={index}><b>{rating.Source}</b>-{rating.Value}</p>
-                        )) : null}
+                        {/* {console.log("length:",movieDetails.Ratings.length)} */}
+                        <div>
+                            {movieDetails.Ratings > 0 ? movieDetails.Ratings.map((rating) => (
+                                <p><b>{rating.Source}</b>-{rating.Value}</p>
+                            )) : null}
+                        </div>
+                      
                         
                           
                     </div>

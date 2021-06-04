@@ -10,6 +10,13 @@
     text-align: center;
 }
 
+.content-section {
+    margin-bottom:2rem;
+    display: grid;
+    grid-auto-rows: minmax(125px, auto);
+    grid-gap: .5rem;
+}
+
 .content-section .content-data{
     text-align: left;
 }
@@ -47,4 +54,31 @@ hr.star-primary {
     color: transparent white;
     margin: 0;
     height: 1rem;
+}
+
+/* media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+    .centered {
+        margin:0;
+        padding: 0;
+    }
+
+    .search-bar {
+        text-align: left;
+    }
+    
+    .content-section{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2px;
+    }
+
+    .content-data {
+        align-items: left;
+    }
+
+    .search-bar {
+        display: flex;
+        flex-direction: row;
+       
+    }
 }

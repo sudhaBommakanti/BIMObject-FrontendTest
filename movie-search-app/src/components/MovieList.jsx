@@ -7,7 +7,7 @@ const MovieList = ({ movieList = [] }) => {
             { movieList.map((data, index) => {
                 if (data) {
                     return (
-                        <div className="content-section">
+                        <div key={index} className="content-section">
                             <div className="content-image">
                                 <a href={`search-page-details/i=${data.imdbID}`}>
                                     <img src={data.Poster} alt="Logo" />
@@ -17,7 +17,7 @@ const MovieList = ({ movieList = [] }) => {
                                 <h2 style={{ fontSize: '22px' }}>{data.Title}</h2>
                                 <h3 style={{ fontSize: '18px' }}>{data.Type} - {data.Year}</h3>
                             </div>
-                            <hr className="star-primary" />
+                            {/* <hr className="star-primary" /> */}
                         </div>
 
                     )
