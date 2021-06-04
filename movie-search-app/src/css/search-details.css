@@ -1,0 +1,34 @@
+.search-details-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-details-data {
+    margin-top:2rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.search-details-data .movie-image-div {
+    position:relative;
+    margin-left:3rem;
+    object-fit: contain;
+}
+
+.movie-image {
+    left:0;
+    top:0; 
+    object-fit: contain;
+}
+
+.movie-data-div {
+    margin-top: 2rem;
+}
+
+.movie-data-div .movie-details-paragraph{
+    text-align: left;
+}
+
+.search-details-plot {
+    padding:2rem;
+}

@@ -9,13 +9,9 @@ const SearchPage = (props) => {
   const [movieList, setMovieList] = useState();
   const URL = 'http://www.omdbapi.com/';
   const API_KEY = '&apikey=749bb216';
-  //const RESP = '&r=json'
-
+  
   const { search } = window.location;
-  console.log("search value:", search);
-  const query = new URLSearchParams(search).get('s');
-  console.log("query:",query);
-
+   
   const fetchData = async () => {
     return await fetch(URL + search + API_KEY)
       .then(response => response.json())
@@ -44,12 +40,12 @@ const SearchPage = (props) => {
           <SearchBar 
             input={input}
             onChange={updateInput}
-        />
+          />
       </div>
       
       <div className="centered" style={{width: '60%', Margin: '0px auto', textAlign:'center'}}>
-      <MovieList movieList={movieList}/>
-        </div>
+            <MovieList movieList={movieList}/>
+      </div>
     
     </>
    );

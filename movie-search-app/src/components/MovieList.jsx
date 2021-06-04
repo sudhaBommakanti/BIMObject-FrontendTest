@@ -1,32 +1,33 @@
 import React from 'react';
-import MovieCard from './MovieCard';
-import { ListGroup } from 'react-bootstrap';
 import '../css/movie-list.css'
 
 const MovieList = ({ movieList = [] }) => {
     return (
         <>
             { movieList.map((data, index) => {
-                console.log("data in movie list:", data);
                 if (data) {
                     return (
                         <div className="content-section">
                             <div className="content-image">
-                                <img src={data.Poster} alt="Logo" />
+                                <a href={`search-page-details/i=${data.imdbID}`}>
+                                    <img src={data.Poster} alt="Logo" />
+                                </a>
                             </div>
                             <div className="content-data">
-                                <h2 style={{fontSize: '22px'}}>{data.Title}</h2>
-                                <h3 style={{fontSize: '18px'}}>{data.Type} - {data.Year}</h3>
-                                <p>Lorem ipsum....</p>
-
+                                <h2 style={{ fontSize: '22px' }}>{data.Title}</h2>
+                                <h3 style={{ fontSize: '18px' }}>{data.Type} - {data.Year}</h3>
                             </div>
                             <hr className="star-primary" />
                         </div>
 
                     )
                 }
-                return null
+                else {
+                    return <p>No Data was returned!</p>;
+                }
+
             })}
+
         </>
     );
 }
