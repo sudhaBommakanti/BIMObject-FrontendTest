@@ -16,14 +16,12 @@ const SearchPage = (props) => {
     return await fetch(URL + search + API_KEY)
       .then(response => response.json())
       .then(data => {
-          console.log("result: ",data);
          setMovieList(data.Search) 
          setMovieListDefault(data)
        });
     }
 
   const updateInput = async (input) => {
-     console.log("input data:",input);
      const filtered = movieListDefault.filter(movie => {
       return movie.title.toLowerCase().includes(input.toLowerCase())
      })

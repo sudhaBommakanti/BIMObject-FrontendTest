@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import '../css/search-details.css'
 
 const SearchPageDetails = (props) => {
@@ -8,13 +9,12 @@ const SearchPageDetails = (props) => {
     const imdbID = props.match.params.id;
     
     const [movieDetails, setMovieDetails] = useState('');
-
+    
     const fetchData = async () => {
         return await fetch(URL + imdbID + API_KEY)
           .then(response => response.json())
           .then(data => {
-              console.log("result: ",data);
-              setMovieDetails(data)
+             setMovieDetails(data)
            });
     }
     
@@ -41,18 +41,8 @@ const SearchPageDetails = (props) => {
                         <p><b>Writer - </b>{movieDetails.Writer}</p>
                         <p><b>Director - </b>{movieDetails.Director}</p>
                         <p><b>IMDB-Rating - </b>{movieDetails.imdbRating}</p>
-                        {/* {console.log("length:",movieDetails.Ratings.length)} */}
-                        <div>
-                            {movieDetails.Ratings > 0 ? movieDetails.Ratings.map((rating) => (
-                                <p><b>{rating.Source}</b>-{rating.Value}</p>
-                            )) : null}
-                        </div>
-                      
-                        
-                          
-                    </div>
+                       </div>
                 </div>
-               
             </div>
         </>
     );
